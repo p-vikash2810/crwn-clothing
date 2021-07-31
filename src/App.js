@@ -6,7 +6,10 @@ import ShopPage from "./pages/Shop/Shop.components";
 import Header from "./components/header/header.collection";
 import SignInAndSignUpPage from "./pages/signin-and-signup/signin-and-signup.component";
 
-import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+} from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -36,9 +39,9 @@ class App extends React.Component {
             ...snapshot.data(),
           });
         });
-      } else {
-        setCurrentUser(userAuth);
       }
+      setCurrentUser(userAuth);
+     
     });
   }
 
